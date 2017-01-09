@@ -44,8 +44,31 @@ public class Stack<T> {
     public T pop(){
         if(isEmpty()) throw new NoSuchElementException("Stack is empty");
         T item=first.item;
-        size--;
         first=first.next;
+        size--;
         return item;
+    }
+
+    /**
+     * <p>
+     *     返回栈顶的值
+     *     但是不会将栈顶元素弹出
+     * </p>
+     * @return
+     */
+    public T peek(){
+        if(isEmpty()) throw new NoSuchElementException("Stack is empty");
+        return first.item;
+    }
+
+    public static void main(String[] args) {
+        Stack<Integer> stack=new Stack<Integer>();
+        for(int i=0;i<10;i++){
+            stack.push(i*10);
+        }
+        //------
+        while (!stack.isEmpty()){
+            System.out.println(stack.pop() +"------"+stack.size());
+        }
     }
 }
