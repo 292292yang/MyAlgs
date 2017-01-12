@@ -1,5 +1,8 @@
 package com.shamyang.algs.search;
 
+import java.util.Arrays;
+import java.util.Random;
+
 /**
  * <p>
  * 二分查找
@@ -11,7 +14,6 @@ package com.shamyang.algs.search;
 public class BinarySearch {
 
     private BinarySearch() {
-
     }
 
     /**
@@ -24,7 +26,8 @@ public class BinarySearch {
     public static int index(int[] a, int key) {
         int lo = 0;
         int hi = a.length;
-        while (hi > lo) {
+        //小心别漏掉hi==lo的情况
+        while (hi >= lo) {
             int mid = lo + (hi - lo) / 2;
             if (key < a[mid]) hi = mid - 1;
             else if (key > a[mid]) lo = mid + 1;
@@ -34,7 +37,7 @@ public class BinarySearch {
     }
 
     public static void main(String[] args) {
-        int[] a = {1, 3, 5, 7, 8, 9, 11, 12, 15};
-        System.out.println(BinarySearch.index(a, 1));
+        //随机生成1000个100以内的数字,然后对其进行去重排序,注意排序是升序的,然后查找7这个数字
+        System.out.println(BinarySearch.index(new Random().ints(0, 100).limit(10000).distinct().sorted().toArray(), 7));
     }
 }
