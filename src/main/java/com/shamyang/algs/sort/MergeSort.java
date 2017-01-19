@@ -42,8 +42,8 @@ public class MergeSort {
             }
         }
         //将合并好的数据复制到原数组中
-        //这里千万注意复制的范围
         for (i = 0; i < tmp.length; i++) {
+            //这里千万注意复制的范围
             a[lo++] = tmp[i];
         }
     }
@@ -57,10 +57,11 @@ public class MergeSort {
         }
     }
 
+
     public static void main(String[] args) {
         MergeSort mergeSort = new MergeSort();
-        Integer[] integers  = new Integer[]{1, 9, 2, 3, 8,1,7};
-        mergeSort.mergeSort(integers, 0, integers.length-1);
+        Integer[] integers  = new Integer[]{1, 9, 2, 3, 8, 1, 7};
+        mergeSort.mergeSort(integers, 0, integers.length - 1);
         Arrays.stream(integers).forEach(e -> System.out.println(e + " "));
     }
 }
